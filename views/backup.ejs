@@ -1,0 +1,26 @@
+<% include partials/header%>
+<div class="ui container">
+  <div class="ui container grid column">
+  <% notes.forEach(function(note){%>
+<table class="ui celled striped table">
+  <thead>
+    <tr><th colspan="5">
+          <%= note.subName%>
+        </th>
+    </tr>
+</thead>
+  <tbody>
+    <tr>
+      <td class="collapsing">
+        <i class="cloud download icon"></i>
+      </td>
+      <td><div class="ui basic blue button">
+          <a href="<%=note.pdflink%>">Download</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<%});%>
+</div>
+</div>
+<% include partials/footer%>

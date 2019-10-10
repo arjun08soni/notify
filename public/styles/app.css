@@ -1,0 +1,19 @@
+body{
+	background: #c2e59c;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #64b3f4, #c2e59c);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #64b3f4, #c2e59c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+/*.ui.cards.card{
+	background: #69f0ae;
+	margin-bottom: 1.2em;
+}*/
+.vertical.footer.segment{
+background: #141E30;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.ui.card,
+.ui.cards>.card {
+  background-color: #eceff1;
+}

@@ -1,0 +1,32 @@
+<% include partials/header%>
+<div class="ui container">
+		<div class="ui container">
+			<h1>Notify App </h1>
+			<p>A notes sharing app!</p>
+			<p>Notes submitted by amazing Teachers and Students like you!</p>
+			<p>
+				<a class="" href="/notes/new">Add new notes</a>
+			</p>
+		</div>	
+
+	<div class="">
+		<% notes.forEach(function(note){%>
+			<div class="">
+				<div class="ui simple button">
+					<a href="<%=note.pdflink%>"></a>
+					<%= note.subName%>
+				</div>
+			</div>
+		<%});%>
+	</div>
+</div>
+<% include partials/footer%>
+
+
+
+<!-- var noteSchema = new mongoose.Schema({
+	subName: String,
+	pdflink: String,
+	branch: String,
+	sem: String
+}); -->
