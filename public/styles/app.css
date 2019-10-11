@@ -1,31 +1,47 @@
-body{
-	background: #c2e59c;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #64b3f4, #c2e59c);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #64b3f4, #c2e59c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-/*.ui.cards.card{
-	background: #69f0ae;
-	margin-bottom: 1.2em;
+/*body{
+	background: #c2e59c; 
+	background: -webkit-linear-gradient(to right, #64b3f4, #c2e59c); 
+	background: linear-gradient(to right, #64b3f4, #c2e59c); 
 }*/
-.vertical.footer.segment{
-background: #141E30;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+body{
+	background: #11998e;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #38ef7d, #11998e);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #38ef7d, #11998e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+}
+
+.ui.grid>.row{
+	margin-top: 2%;
 }
 .ui.card,
 .ui.cards>.card {
+	color:white;
   background-color: #eceff1;
   margin-top: 5%;
+  margin-right: 5%;
 }
 
-.ui.footer{
-	position: fixed;
-	 margin-top: -50px;
-}
 
 .ui.message{
-	background: #0052D4;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #6FB1FC, #4364F7, #0052D4);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #6FB1FC, #4364F7, #0052D4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: #11998e;
+background: -webkit-linear-gradient(to right, #38ef7d, #11998e);
+background: linear-gradient(to right, #38ef7d, #11998e); 
+
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;            /* Footer height */
+}
+
+.ui.menu.fluid, .ui.vertical.menu.fluid{
+	background: right;
 }

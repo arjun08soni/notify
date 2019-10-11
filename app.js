@@ -1,25 +1,33 @@
-var express    = require("express"),
-	app 	   = express(),
-	bodyParser = require("body-parser"),
-	mongoose   = require("mongoose");
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
-var jsonParser = bodyParser.json()
+var express    = require("express");
+var	app 	   = express();
+var	bodyParser = require("body-parser");
+var	methodOverride = require("method-override");
+var	mongoose   = require("mongoose");
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+var jsonParser = bodyParser.json();
+var url = require('url');
 
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
+app.use(methodOverride("_method"));
 
+
+//mongo setup
 mongoose.connect("mongodb://localhost/notify", {useNewUrlParser:true,useUnifiedTopology: true});
+
 
 //SCHEMA SETUP
 var noteSchema = new mongoose.Schema({
 	subName: String,
 	pdflink: String,
 	branch: String,
-	sem: String
+	sem: String,
+	//uploaded: { type: Date, default:Date.now}
 });
 
+//DATA MODEL COLLECTION
 var Note = mongoose.model("Note", noteSchema);
 
 // Note.create({
@@ -37,52 +45,52 @@ var Note = mongoose.model("Note", noteSchema);
 // });
 
 
+//ROUTES
+
+//index page
 app.get("/",function(req,res){
 	res.render("index");
 });
 
+
+//Semester page
 app.get("/sem",function(req,res){
 	res.render("semester");
 });
 
 
-app.get("/notes/:id/:semid",function(req,res){
-	var id = req.params.id;
+
+//renders form for uploading new notes
+app.get("/notes/new",function(req,res){
+	res.render("new");
+});
+
+
+
+//Display Notes according to the branch and sem
+//id refers to the branch
+//semid refers to the sem eg. /notes/cse/7
+
+app.get("/notes/:branchid/:semid",function(req,res){
+	var branchid = req.params.branchid;
 	var semid = req.params.semid;
 	//res.send(id);
 	//res.send(semid);
 	//if(id =="cse" & semid == '7'){
-		//res.send("the sem is"+semid);
-		Note.find({'branch': id,'sem':semid},(err,notes)=>{
+	//res.send("the sem is"+semid);
+		Note.find({'branch': branchid,'sem':semid},(err,notes)=>{
 			if(err){
 				console.log(err);
-			}else{
+			}
+			else{
 				res.render("notes",{notes:notes});
 			}
 		});
-	
 });
 
-//find all notes for cse 7th sem
-// app.get("/cse7notes/:branch",function(req,res){
-// 		var branch = req.params.branch;
-// 		Note.find({'branch': 'cse','sem':'7'},function(err,notes){
-// 		if(err){
-// 			console.log(err);
-// 		}
-// 		else{
-// 			//res.render("cse-7-notes",{notes:notes});
-// 			res.send(req);
-// 		}
-// 	});	
-	
-// });
 
-//renders form for uploading new notes
-app.get("/newnotes",function(req,res){
-	res.render("new");
-})
 
+//POST ROUTE for new notes
 app.post("/",function(req,res){
 
 	//get data from form and add to notes array
@@ -97,12 +105,29 @@ app.post("/",function(req,res){
 			console.log(err);
 		}
 		else{
-			//redirect to notes page
+			//redirect to index page after uploading new notes
 			res.redirect("/");
 		}
 	})		
 });
 
-app.listen(3000,function(){
+
+//DELETE Notes
+app.delete("/notes/:branchid/:semid/:_id",(req,res)=>{
+	Note.findByIdAndRemove(req.params._id, (err)=>{
+		if(err){
+			res.redirect("/");
+		}
+		else{
+		res.redirect("/notes/"+req.params.branchid+"/"+req.params.semid);
+		//res.send(req.url);
+	}
+	});
+});
+
+
+//PORT setup
+const port = process.env.PORT || 3000;
+app.listen(port,function(){
 	console.log("server is reaady!");
 });
