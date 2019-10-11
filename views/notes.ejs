@@ -12,12 +12,14 @@
       </div>
     </div>
     <div class="extra content">
-      <div >
-          <a class="ui blue button" href="<%=note.pdflink%>"><i class="cloud download icon"></i>Download</a>
-      </div>
-      <form id="delete" action="/notes/<%= note.branch%>/<%= note.sem%>/<%= note._id%>?_method=DELETE" method="POST">
-        <button class="ui red button">Delete</button>
+      <div class="ui two buttons">
+        <a  href="<%=note.pdflink%>"><button class="ui blue button"><i class="cloud download icon"></i>Download</button>
+        </a>
+        
+        <form id="delete" action="/notes/<%= note.branch%>/<%= note.sem%>/<%= note._id%>?_method=DELETE" method="POST">
+        <button class="ui red button" Onclick="return ConfirmDelete()"><i class="trash icon"></i></i>Delete</button>
       </form>
+      </div>
     </div>
   </div>
  <%});%>

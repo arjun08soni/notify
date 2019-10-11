@@ -15,8 +15,8 @@ app.use(methodOverride("_method"));
 
 
 //mongo setup
-mongoose.connect("mongodb://localhost/notify", {useNewUrlParser:true,useUnifiedTopology: true});
-
+mongoose.connect("mongodb://localhost/notify", {useNewUrlParser:true,useUnifiedTopology: true, useFindAndModify: false});
+mongoose.set('useFindAndModify', false);
 
 //SCHEMA SETUP
 var noteSchema = new mongoose.Schema({
@@ -105,8 +105,8 @@ app.post("/",function(req,res){
 			console.log(err);
 		}
 		else{
-			//redirect to index page after uploading new notes
-			res.redirect("/");
+			//redirect to notes page after uploading new notes
+			res.redirect("notes/"+req.body.note.branch+"/"+req.body.note.sem);
 		}
 	})		
 });
