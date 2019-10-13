@@ -15,7 +15,7 @@ app.use(methodOverride("_method"));
 
 
 //mongo setup
-const uri = "mongodb+srv://arjun:arjun@cluster0-cua8v.mongodb.net/notify";
+const uri = "mongodb://localhost/notify" || process.env.DATABASEURL;
 mongoose.connect(uri, {useNewUrlParser:true,useUnifiedTopology: true, useFindAndModify: false});
 mongoose.set('useFindAndModify', false);
 
