@@ -4,8 +4,13 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+<<<<<<< HEAD
     "test": "echo \"Error: no test specified\" && exit 1",
      "start": "node app.js"
+=======
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+>>>>>>> be561e5515efb384f7819eb6498212517f66360b
   },
   "author": "Arjun Soni",
   "license": "ISC",
