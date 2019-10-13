@@ -15,12 +15,8 @@ app.use(methodOverride("_method"));
 
 
 //mongo setup
-<<<<<<< HEAD
 const uri = "mongodb+srv://arjun:arjun@cluster0-cua8v.mongodb.net/notify";
 mongoose.connect(uri, {useNewUrlParser:true,useUnifiedTopology: true, useFindAndModify: false});
-=======
-mongoose.connect("mongodb+srv://arjun:arjun@cluster0-cua8v.mongodb.net/notify", {useNewUrlParser:true,useUnifiedTopology: true, useFindAndModify: false});
->>>>>>> be561e5515efb384f7819eb6498212517f66360b
 mongoose.set('useFindAndModify', false);
 
 //SCHEMA SETUP
