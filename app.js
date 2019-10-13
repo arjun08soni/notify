@@ -15,8 +15,9 @@ app.use(methodOverride("_method"));
 
 
 //mongo setup
-const uri = process.env.DATABASEURL || "mongodb://localhost/notify";
-mongoose.connect(uri, {useNewUrlParser:true,useUnifiedTopology: true, useFindAndModify: false});
+var dev_db_url = "mongodb://localhost/notify";
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
+mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 mongoose.set('useFindAndModify', false);
 
 //SCHEMA SETUP
