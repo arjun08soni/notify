@@ -12,13 +12,52 @@
 						<div class="ui label">http://</div>
 						<input class="" type="text" name="note[pdflink]" placeholder="notes url">
 					</div>
-					<div class="field">
+					<!-- <div class="field">
 						<label>Branch</label>
 						<input class="" type="text" name="note[branch]" placeholder="cse">
 					</div>
 					<div class="field">
 						<label>Semester</label>
 						<input class="" type="text" name="note[sem]" placeholder="7">
+					</div> -->
+					<div class="grouped fields">
+					    <label for="fruit">Select Branch:</label>
+					    <div class="field">
+					      <div class="ui radio checkbox">
+					        <input type="radio" name="note[branch]" value="ec"  tabindex="0" class="hidden">
+					        <label>EC</label>
+					      </div>
+					    </div>
+					    <div class="field">
+					      <div class="ui radio checkbox">
+					        <input type="radio" name="note[branch]" value="cse" checked="" tabindex="0" class="hidden">
+					        <label>CS</label>
+					      </div>
+					    </div>
+					    <div class="field">
+					      <div class="ui radio checkbox">
+					        <input type="radio" name="note[branch]" value="civ" tabindex="0" class="hidden">
+					        <label>CV</label>
+					      </div>
+					    </div>
+					    <div class="field">
+					      <div class="ui radio checkbox">
+					        <input type="radio" name="note[branch]" value="mech" tabindex="0" class="hidden">
+					        <label>ME</label>
+					      </div>
+					    </div>
+					 </div>
+					 <div class="field">
+					    <label>Semester</label>
+					    <select class="ui search dropdown" name="note[sem]">
+					      <option value="">Select Semester</option>
+					      <option value="3">3rd Sem</option>
+					      <option value="4">4th Sem</option>
+					      <option value="5">5th Sem</option>
+					      <option value="6">6th Sem</option>
+					      <option value="7">7th Sem</option>
+					      <option value="8">8th Sem</option>
+					  </select>
 					</div>
 					<div class="field">
 						<input class="ui green button" type="submit" name="" value="Upload">
