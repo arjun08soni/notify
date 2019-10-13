@@ -1,8 +1,10 @@
-/*body{
-	background: #c2e59c; 
-	background: -webkit-linear-gradient(to right, #64b3f4, #c2e59c); 
-	background: linear-gradient(to right, #64b3f4, #c2e59c); 
-}*/
+/*  @media only screen and (max-   
+         width: 640px){
+
+         #logBox{
+            width:100%;
+         }
+       }*/
 body{
 	background: #11998e;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #38ef7d, #11998e);  /* Chrome 10-25, Safari 5.1-6 */
@@ -44,4 +46,13 @@ background: linear-gradient(to right, #38ef7d, #11998e);
 
 .ui.menu.fluid, .ui.vertical.menu.fluid{
 	background: right;
+}
+.ui {
+  display: block;
+  float: none;
+  width: auto;
+}
+@viewport {
+  width: device-width ;
+  zoom: 1.0 ;
 }
